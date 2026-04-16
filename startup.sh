@@ -10,6 +10,10 @@ sed -i "s#memory: .*#memory: 600000Mi#" ./easytrade/kubernetes-manifests/release
 
 sed -i "s#memory: .*#memory: 10Mi#" ./easytrade/kubernetes-manifests/release/frontendreverseproxy.yaml
 
+sed -i "s#name: accountservice#name: easytrade-accountservice#" ./easytrade/kubernetes-manifests/release/accountservice.yaml
+
+sed -i "s#memory: frontendreverseproxy#name: easytrade-frontendreverseproxy#" ./easytrade/kubernetes-manifests/release/frontendreverseproxy.yaml
+
 kubectl apply -f ./easytrade/kubernetes-manifests/release/accountservice.yaml -n easytrade
 
 kubectl apply -f ./easytrade/kubernetes-manifests/release/frontendreverseproxy.yaml -n easytrade
