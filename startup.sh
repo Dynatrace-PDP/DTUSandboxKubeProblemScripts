@@ -14,6 +14,10 @@ sed -i "s#name: accountservice#name: easytrade-accountservice#" ./easytrade/kube
 
 sed -i "s#memory: frontendreverseproxy#name: easytrade-frontendreverseproxy#" ./easytrade/kubernetes-manifests/release/frontendreverseproxy.yaml
 
+kubectl delete -f ./easytrade/kubernetes-manifests/release/accountservice.yaml -n easytrade
+
+kubectl delete -f ./easytrade/kubernetes-manifests/release/frontendreverseproxy.yaml -n easytrade
+
 kubectl apply -f ./easytrade/kubernetes-manifests/release/accountservice.yaml -n easytrade
 
 kubectl apply -f ./easytrade/kubernetes-manifests/release/frontendreverseproxy.yaml -n easytrade
